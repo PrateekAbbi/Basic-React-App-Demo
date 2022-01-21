@@ -11,7 +11,7 @@ const {
 const router = express.Router();
 
 //Route for reading the data
-router.route("/").get(readData);
+router.route("/read").get(readData);
 
 //Route for creating the data
 router.route("/create").post(createData);

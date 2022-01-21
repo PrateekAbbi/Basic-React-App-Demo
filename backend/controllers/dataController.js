@@ -33,7 +33,7 @@ const createData = asyncHandler(async (req, res) => {
 
 //Function for Reading the data
 const readData = asyncHandler(async (req, res) => {
-  const dummyData = await Data.findOne({ _id: 1 });
+  const dummyData = await Data.findOne();
 
   if (dummyData) {
     res.status(201).json(dummyData);

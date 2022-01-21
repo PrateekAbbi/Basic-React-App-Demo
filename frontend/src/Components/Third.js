@@ -35,6 +35,23 @@ const Third = () => {
   const openUpdateModal = () => setOpenUpdate(true);
   const handleUpdateClose = () => setOpenUpdate(false);
 
+  async function readData() {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const { data } = await axios.get("/api/read", config);
+
+    if (data) {
+      try {
+        setUserData(data.content);
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    }
+  }
+
   const addSubmitHandler = async (event) => {
     event.preventDefault();
     const config = {
@@ -106,7 +123,10 @@ const Third = () => {
   const handleAPIClose = () => setOpenAPI(false);
 
   return (
-    <Card style={{ background: "#1976d2", textAlign: "center" }}>
+    <Card
+      style={{ background: "#1976d2", textAlign: "center" }}
+      onLoad={readData()}
+    >
       <CardContent style={{ color: "#fff" }}>
         <Typography variant="h5" component="div">
           <b>User Data</b>
@@ -186,7 +206,7 @@ const Third = () => {
               label="Body"
               variant="standard"
               onChange={(e) => setUserData(e.target.value)}
-              value={userData}
+              //value={userData}
             />
             <br />
             <br />

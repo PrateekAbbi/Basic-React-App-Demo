@@ -2,13 +2,10 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 const Second = () => {
-  const [data, setData] = React.useState("");
-
   return (
     <Card style={{ background: "#1976d2" }}>
       <CardContent style={{ color: "#fff" }}>

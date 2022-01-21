@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon app.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm start\" \"npm run client\""
+    "dev": "concurrently \"npm start\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,7 @@
     "express-session": "^1.17.2",
     "mongoose": "^6.1.7",
     "nodemon": "^2.0.15",
+    "path": "^0.12.7",
     "redux-devtools-extension": "^2.13.9"
   }
 }

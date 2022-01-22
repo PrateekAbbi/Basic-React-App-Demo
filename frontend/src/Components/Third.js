@@ -27,6 +27,7 @@ const Third = () => {
   const [openUpdate, setOpenUpdate] = React.useState(false);
   const [openAPI, setOpenAPI] = React.useState(false);
   const [userData, setUserData] = React.useState("");
+  const [updateData, setUpdateData] = React.useState("");
   const [apiCount, setApiCount] = React.useState();
 
   const openCreateModal = () => setOpenCreate(true);
@@ -87,7 +88,7 @@ const Third = () => {
 
     const { data } = await axios.post(
       "/api/update",
-      { content: userData },
+      { content: updateData },
       config
     );
     console.log(data);
@@ -249,8 +250,8 @@ const Third = () => {
               id="standard-basic"
               label="Update"
               variant="standard"
-              onChange={(e) => setUserData(e.target.value)}
-              value={userData}
+              onChange={(e) => setUpdateData(e.target.value)}
+              placeholder={userData}
             />
             <br />
             <br />
